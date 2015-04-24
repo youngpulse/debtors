@@ -1,0 +1,19 @@
+C:\Users\Olga\Desktop\DIPLOM 03.04.2015\Диплом\календари\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\bin\Debug\System.Windows.Forms.Calendar.dll
+C:\Users\Olga\Desktop\DIPLOM 03.04.2015\Диплом\календари\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\bin\Debug\System.Windows.Forms.Calendar.pdb
+C:\Users\Olga\Desktop\DIPLOM 03.04.2015\Диплом\календари\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\obj\Debug\System.Windows.Forms.Calendar.dll
+C:\Users\Olga\Desktop\DIPLOM 03.04.2015\Диплом\календари\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\obj\Debug\System.Windows.Forms.Calendar.pdb
+C:\Users\Olga\Desktop\DIPLOM 03.04.2015\Диплом\календари\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\obj\Debug\System.Windows.Forms.Calendar.csprojResolveAssemblyReference.cache
+C:\Users\Olga\Downloads\DIPLOM 13.04.2015(1)\DIPLOM 03.04.2015\Диплом\Debtors_v_2\2 user\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\bin\Debug\System.Windows.Forms.Calendar.dll
+C:\Users\Olga\Downloads\DIPLOM 13.04.2015(1)\DIPLOM 03.04.2015\Диплом\Debtors_v_2\2 user\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\bin\Debug\System.Windows.Forms.Calendar.pdb
+C:\Users\Olga\Downloads\DIPLOM 13.04.2015(1)\DIPLOM 03.04.2015\Диплом\Debtors_v_2\2 user\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\obj\Debug\System.Windows.Forms.Calendar.dll
+C:\Users\Olga\Downloads\DIPLOM 13.04.2015(1)\DIPLOM 03.04.2015\Диплом\Debtors_v_2\2 user\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\obj\Debug\System.Windows.Forms.Calendar.pdb
+C:\Users\Olga\Desktop\Новая папка (13)\libs\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\bin\Debug\System.Windows.Forms.Calendar.dll
+C:\Users\Olga\Desktop\Новая папка (13)\libs\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\bin\Debug\System.Windows.Forms.Calendar.pdb
+C:\Users\Olga\Desktop\Новая папка (13)\libs\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\obj\Debug\System.Windows.Forms.Calendar.csprojResolveAssemblyReference.cache
+C:\Users\Olga\Desktop\Новая папка (13)\libs\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\obj\Debug\System.Windows.Forms.Calendar.dll
+C:\Users\Olga\Desktop\Новая папка (13)\libs\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\obj\Debug\System.Windows.Forms.Calendar.pdb
+C:\Users\Olga\Desktop\Новая папка (14)\libs\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\bin\Debug\System.Windows.Forms.Calendar.dll
+C:\Users\Olga\Desktop\Новая папка (14)\libs\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\bin\Debug\System.Windows.Forms.Calendar.pdb
+C:\Users\Olga\Desktop\Новая папка (14)\libs\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\obj\Debug\System.Windows.Forms.Calendar.csprojResolveAssemblyReference.cache
+C:\Users\Olga\Desktop\Новая папка (14)\libs\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\obj\Debug\System.Windows.Forms.Calendar.dll
+C:\Users\Olga\Desktop\Новая папка (14)\libs\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\obj\Debug\System.Windows.Forms.Calendar.pdb

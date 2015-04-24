@@ -1,0 +1,664 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DebtorsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="DebtorsModelStoreContainer">
+          <EntitySet Name="Debtors" EntityType="DebtorsModel.Store.Debtors" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EnforcementOrders" EntityType="DebtorsModel.Store.EnforcementOrders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Events" EntityType="DebtorsModel.Store.Events" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Journal" EntityType="DebtorsModel.Store.Journal" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LawCourt" EntityType="DebtorsModel.Store.LawCourt" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrganizationInfo" EntityType="DebtorsModel.Store.OrganizationInfo" store:Type="Tables" store:Schema="dbo" store:Name="OrganizationInfo">
+            <DefiningQuery>SELECT 
+      [OrganizationInfo].[Name] AS [Name], 
+      [OrganizationInfo].[Address] AS [Address], 
+      [OrganizationInfo].[Phone] AS [Phone], 
+      [OrganizationInfo].[Fax] AS [Fax], 
+      [OrganizationInfo].[INN] AS [INN], 
+      [OrganizationInfo].[BIK] AS [BIK], 
+      [OrganizationInfo].[Director] AS [Director]
+      FROM [dbo].[OrganizationInfo] AS [OrganizationInfo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="sysdiagrams" EntityType="DebtorsModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TypesDebtor" EntityType="DebtorsModel.Store.TypesDebtor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="DebtorsModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Writs" EntityType="DebtorsModel.Store.Writs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Сlaims" EntityType="DebtorsModel.Store.Сlaims" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Debtors_TypesDebtor" Association="DebtorsModel.Store.FK_Debtors_TypesDebtor">
+            <End Role="TypesDebtor" EntitySet="TypesDebtor" />
+            <End Role="Debtors" EntitySet="Debtors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EnforcementOrders_Debtors" Association="DebtorsModel.Store.FK_EnforcementOrders_Debtors">
+            <End Role="Debtors" EntitySet="Debtors" />
+            <End Role="EnforcementOrders" EntitySet="EnforcementOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EnforcementOrders_LawCourt" Association="DebtorsModel.Store.FK_EnforcementOrders_LawCourt">
+            <End Role="LawCourt" EntitySet="LawCourt" />
+            <End Role="EnforcementOrders" EntitySet="EnforcementOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Journal_Debtors" Association="DebtorsModel.Store.FK_Journal_Debtors">
+            <End Role="Debtors" EntitySet="Debtors" />
+            <End Role="Journal" EntitySet="Journal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Writs_Debtors" Association="DebtorsModel.Store.FK_Writs_Debtors">
+            <End Role="Debtors" EntitySet="Debtors" />
+            <End Role="Writs" EntitySet="Writs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Writs_LawCourt" Association="DebtorsModel.Store.FK_Writs_LawCourt">
+            <End Role="LawCourt" EntitySet="LawCourt" />
+            <End Role="Writs" EntitySet="Writs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сlaims_Debtors" Association="DebtorsModel.Store.FK_Сlaims_Debtors">
+            <End Role="Debtors" EntitySet="Debtors" />
+            <End Role="Сlaims" EntitySet="Сlaims" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Debtors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Debt" Type="decimal" Nullable="false" />
+          <Property Name="StartDateDebt" Type="datetime" Nullable="false" />
+          <Property Name="NumContract" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DateContract" Type="date" Nullable="false" />
+          <Property Name="ScanContract" Type="varbinary(max)" />
+          <Property Name="FileExtension" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="EnforcementOrders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DebtorId" Type="int" Nullable="false" />
+          <Property Name="CourtId" Type="int" Nullable="false" />
+          <Property Name="DateGetting" Type="date" Nullable="false" />
+          <Property Name="ScanDoc" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="DateTimeStart" Type="datetime" Nullable="false" />
+          <Property Name="DateTimeEnd" Type="datetime" Nullable="false" />
+          <Property Name="Color" Type="nvarchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Journal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DebtorId" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" Nullable="false" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="LawCourt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Employee" Type="nvarchar" MaxLength="100" />
+          <Property Name="Post" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'Debtors.dbo.OrganizationInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="OrganizationInfo">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="Phone" Type="nchar" MaxLength="10" />
+          <Property Name="Fax" Type="nchar" MaxLength="10" />
+          <Property Name="INN" Type="nchar" MaxLength="10" />
+          <Property Name="BIK" Type="nchar" MaxLength="10" />
+          <Property Name="Director" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TypesDebtor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="nvarchar" Nullable="false" MaxLength="16" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="16" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Writs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LawCourt" Type="int" Nullable="false" />
+          <Property Name="DebtorId" Type="int" Nullable="false" />
+          <Property Name="DateSelling" Type="date" Nullable="false" />
+          <Property Name="ScanDoc" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Сlaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DebtorId" Type="int" Nullable="false" />
+          <Property Name="DateCreating" Type="date" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ScanDoc" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Debtors_TypesDebtor">
+          <End Role="TypesDebtor" Type="DebtorsModel.Store.TypesDebtor" Multiplicity="1" />
+          <End Role="Debtors" Type="DebtorsModel.Store.Debtors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesDebtor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Debtors">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EnforcementOrders_Debtors">
+          <End Role="Debtors" Type="DebtorsModel.Store.Debtors" Multiplicity="1" />
+          <End Role="EnforcementOrders" Type="DebtorsModel.Store.EnforcementOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Debtors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EnforcementOrders">
+              <PropertyRef Name="DebtorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EnforcementOrders_LawCourt">
+          <End Role="LawCourt" Type="DebtorsModel.Store.LawCourt" Multiplicity="1" />
+          <End Role="EnforcementOrders" Type="DebtorsModel.Store.EnforcementOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LawCourt">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EnforcementOrders">
+              <PropertyRef Name="CourtId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Journal_Debtors">
+          <End Role="Debtors" Type="DebtorsModel.Store.Debtors" Multiplicity="1" />
+          <End Role="Journal" Type="DebtorsModel.Store.Journal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Debtors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Journal">
+              <PropertyRef Name="DebtorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Writs_Debtors">
+          <End Role="Debtors" Type="DebtorsModel.Store.Debtors" Multiplicity="1" />
+          <End Role="Writs" Type="DebtorsModel.Store.Writs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Debtors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Writs">
+              <PropertyRef Name="DebtorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Writs_LawCourt">
+          <End Role="LawCourt" Type="DebtorsModel.Store.LawCourt" Multiplicity="1" />
+          <End Role="Writs" Type="DebtorsModel.Store.Writs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LawCourt">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Writs">
+              <PropertyRef Name="LawCourt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сlaims_Debtors">
+          <End Role="Debtors" Type="DebtorsModel.Store.Debtors" Multiplicity="1" />
+          <End Role="Сlaims" Type="DebtorsModel.Store.Сlaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Debtors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Сlaims">
+              <PropertyRef Name="DebtorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DebtorsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DebtorsEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Debtors" EntityType="DebtorsModel.Debtor" />
+          <EntitySet Name="EnforcementOrders" EntityType="DebtorsModel.EnforcementOrder" />
+          <EntitySet Name="Events" EntityType="DebtorsModel.Event" />
+          <EntitySet Name="Journals" EntityType="DebtorsModel.Journal" />
+          <EntitySet Name="LawCourts" EntityType="DebtorsModel.LawCourt" />
+          <EntitySet Name="OrganizationInfoes" EntityType="DebtorsModel.OrganizationInfo" />
+          <EntitySet Name="sysdiagrams" EntityType="DebtorsModel.sysdiagram" />
+          <EntitySet Name="TypesDebtors" EntityType="DebtorsModel.TypesDebtor" />
+          <EntitySet Name="Users" EntityType="DebtorsModel.User" />
+          <EntitySet Name="Writs" EntityType="DebtorsModel.Writ" />
+          <EntitySet Name="Сlaims" EntityType="DebtorsModel.Сlaims" />
+          <AssociationSet Name="FK_Debtors_TypesDebtor" Association="DebtorsModel.FK_Debtors_TypesDebtor">
+            <End Role="TypesDebtor" EntitySet="TypesDebtors" />
+            <End Role="Debtors" EntitySet="Debtors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EnforcementOrders_Debtors" Association="DebtorsModel.FK_EnforcementOrders_Debtors">
+            <End Role="Debtors" EntitySet="Debtors" />
+            <End Role="EnforcementOrders" EntitySet="EnforcementOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Journal_Debtors" Association="DebtorsModel.FK_Journal_Debtors">
+            <End Role="Debtors" EntitySet="Debtors" />
+            <End Role="Journal" EntitySet="Journals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Writs_Debtors" Association="DebtorsModel.FK_Writs_Debtors">
+            <End Role="Debtors" EntitySet="Debtors" />
+            <End Role="Writs" EntitySet="Writs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сlaims_Debtors" Association="DebtorsModel.FK_Сlaims_Debtors">
+            <End Role="Debtors" EntitySet="Debtors" />
+            <End Role="Сlaims" EntitySet="Сlaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EnforcementOrders_LawCourt" Association="DebtorsModel.FK_EnforcementOrders_LawCourt">
+            <End Role="LawCourt" EntitySet="LawCourts" />
+            <End Role="EnforcementOrders" EntitySet="EnforcementOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Writs_LawCourt" Association="DebtorsModel.FK_Writs_LawCourt">
+            <End Role="LawCourt" EntitySet="LawCourts" />
+            <End Role="Writs" EntitySet="Writs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Debtor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Debt" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="NumContract" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DateContract" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ScanContract" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="TypesDebtor" Relationship="DebtorsModel.FK_Debtors_TypesDebtor" FromRole="Debtors" ToRole="TypesDebtor" />
+          <NavigationProperty Name="EnforcementOrders" Relationship="DebtorsModel.FK_EnforcementOrders_Debtors" FromRole="Debtors" ToRole="EnforcementOrders" />
+          <NavigationProperty Name="Journals" Relationship="DebtorsModel.FK_Journal_Debtors" FromRole="Debtors" ToRole="Journal" />
+          <NavigationProperty Name="Writs" Relationship="DebtorsModel.FK_Writs_Debtors" FromRole="Debtors" ToRole="Writs" />
+          <NavigationProperty Name="Сlaims" Relationship="DebtorsModel.FK_Сlaims_Debtors" FromRole="Debtors" ToRole="Сlaims" />
+          <Property Type="DateTime" Name="StartDateDebt" Nullable="false" Precision="3" />
+          <Property Type="String" Name="FileExtension" MaxLength="5" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EnforcementOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DebtorId" Type="Int32" Nullable="false" />
+          <Property Name="CourtId" Type="Int32" Nullable="false" />
+          <Property Name="DateGetting" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ScanDoc" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Debtor" Relationship="DebtorsModel.FK_EnforcementOrders_Debtors" FromRole="EnforcementOrders" ToRole="Debtors" />
+          <NavigationProperty Name="LawCourt" Relationship="DebtorsModel.FK_EnforcementOrders_LawCourt" FromRole="EnforcementOrders" ToRole="LawCourt" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="DateTimeStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateTimeEnd" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Journal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DebtorId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Debtor" Relationship="DebtorsModel.FK_Journal_Debtors" FromRole="Journal" ToRole="Debtors" />
+        </EntityType>
+        <EntityType Name="LawCourt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Employee" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Post" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="EnforcementOrders" Relationship="DebtorsModel.FK_EnforcementOrders_LawCourt" FromRole="LawCourt" ToRole="EnforcementOrders" />
+          <NavigationProperty Name="Writs" Relationship="DebtorsModel.FK_Writs_LawCourt" FromRole="LawCourt" ToRole="Writs" />
+        </EntityType>
+        <EntityType Name="OrganizationInfo">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Fax" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="INN" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="BIK" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Director" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TypesDebtor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Debtors" Relationship="DebtorsModel.FK_Debtors_TypesDebtor" FromRole="TypesDebtor" ToRole="Debtors" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Writ">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="LawCourt" Type="Int32" Nullable="false" />
+          <Property Name="DebtorId" Type="Int32" Nullable="false" />
+          <Property Name="DateSelling" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ScanDoc" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Debtor" Relationship="DebtorsModel.FK_Writs_Debtors" FromRole="Writs" ToRole="Debtors" />
+          <NavigationProperty Name="LawCourt1" Relationship="DebtorsModel.FK_Writs_LawCourt" FromRole="Writs" ToRole="LawCourt" />
+        </EntityType>
+        <EntityType Name="Сlaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DebtorId" Type="Int32" Nullable="false" />
+          <Property Name="DateCreating" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ScanDoc" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Debtor" Relationship="DebtorsModel.FK_Сlaims_Debtors" FromRole="Сlaims" ToRole="Debtors" />
+        </EntityType>
+        <Association Name="FK_Debtors_TypesDebtor">
+          <End Role="TypesDebtor" Type="DebtorsModel.TypesDebtor" Multiplicity="1" />
+          <End Role="Debtors" Type="DebtorsModel.Debtor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesDebtor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Debtors">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EnforcementOrders_Debtors">
+          <End Role="Debtors" Type="DebtorsModel.Debtor" Multiplicity="1" />
+          <End Role="EnforcementOrders" Type="DebtorsModel.EnforcementOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Debtors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EnforcementOrders">
+              <PropertyRef Name="DebtorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Journal_Debtors">
+          <End Role="Debtors" Type="DebtorsModel.Debtor" Multiplicity="1" />
+          <End Role="Journal" Type="DebtorsModel.Journal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Debtors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Journal">
+              <PropertyRef Name="DebtorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Writs_Debtors">
+          <End Role="Debtors" Type="DebtorsModel.Debtor" Multiplicity="1" />
+          <End Role="Writs" Type="DebtorsModel.Writ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Debtors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Writs">
+              <PropertyRef Name="DebtorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сlaims_Debtors">
+          <End Role="Debtors" Type="DebtorsModel.Debtor" Multiplicity="1" />
+          <End Role="Сlaims" Type="DebtorsModel.Сlaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Debtors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Сlaims">
+              <PropertyRef Name="DebtorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EnforcementOrders_LawCourt">
+          <End Role="LawCourt" Type="DebtorsModel.LawCourt" Multiplicity="1" />
+          <End Role="EnforcementOrders" Type="DebtorsModel.EnforcementOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LawCourt">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EnforcementOrders">
+              <PropertyRef Name="CourtId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Writs_LawCourt">
+          <End Role="LawCourt" Type="DebtorsModel.LawCourt" Multiplicity="1" />
+          <End Role="Writs" Type="DebtorsModel.Writ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LawCourt">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Writs">
+              <PropertyRef Name="LawCourt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DebtorsModelStoreContainer" CdmEntityContainer="DebtorsEntities">
+          <EntitySetMapping Name="Debtors">
+            <EntityTypeMapping TypeName="DebtorsModel.Debtor">
+              <MappingFragment StoreEntitySet="Debtors">
+                <ScalarProperty Name="FileExtension" ColumnName="FileExtension" />
+                <ScalarProperty Name="StartDateDebt" ColumnName="StartDateDebt" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Debt" ColumnName="Debt" />
+                <ScalarProperty Name="NumContract" ColumnName="NumContract" />
+                <ScalarProperty Name="DateContract" ColumnName="DateContract" />
+                <ScalarProperty Name="ScanContract" ColumnName="ScanContract" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EnforcementOrders">
+            <EntityTypeMapping TypeName="DebtorsModel.EnforcementOrder">
+              <MappingFragment StoreEntitySet="EnforcementOrders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DebtorId" ColumnName="DebtorId" />
+                <ScalarProperty Name="CourtId" ColumnName="CourtId" />
+                <ScalarProperty Name="DateGetting" ColumnName="DateGetting" />
+                <ScalarProperty Name="ScanDoc" ColumnName="ScanDoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="DebtorsModel.Event">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="DateTimeStart" ColumnName="DateTimeStart" />
+                <ScalarProperty Name="DateTimeEnd" ColumnName="DateTimeEnd" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Journals">
+            <EntityTypeMapping TypeName="DebtorsModel.Journal">
+              <MappingFragment StoreEntitySet="Journal">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DebtorId" ColumnName="DebtorId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LawCourts">
+            <EntityTypeMapping TypeName="DebtorsModel.LawCourt">
+              <MappingFragment StoreEntitySet="LawCourt">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrganizationInfoes">
+            <EntityTypeMapping TypeName="DebtorsModel.OrganizationInfo">
+              <MappingFragment StoreEntitySet="OrganizationInfo">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="BIK" ColumnName="BIK" />
+                <ScalarProperty Name="Director" ColumnName="Director" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DebtorsModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypesDebtors">
+            <EntityTypeMapping TypeName="DebtorsModel.TypesDebtor">
+              <MappingFragment StoreEntitySet="TypesDebtor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DebtorsModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Writs">
+            <EntityTypeMapping TypeName="DebtorsModel.Writ">
+              <MappingFragment StoreEntitySet="Writs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LawCourt" ColumnName="LawCourt" />
+                <ScalarProperty Name="DebtorId" ColumnName="DebtorId" />
+                <ScalarProperty Name="DateSelling" ColumnName="DateSelling" />
+                <ScalarProperty Name="ScanDoc" ColumnName="ScanDoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Сlaims">
+            <EntityTypeMapping TypeName="DebtorsModel.Сlaims">
+              <MappingFragment StoreEntitySet="Сlaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DebtorId" ColumnName="DebtorId" />
+                <ScalarProperty Name="DateCreating" ColumnName="DateCreating" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="ScanDoc" ColumnName="ScanDoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

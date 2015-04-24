@@ -1,0 +1,20 @@
+C:\Users\Olga\Desktop\DIPLOM 03.04.2015\Диплом\календари\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\bin\Debug\CalendarDemo.exe
+C:\Users\Olga\Desktop\DIPLOM 03.04.2015\Диплом\календари\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\bin\Debug\CalendarDemo.pdb
+C:\Users\Olga\Desktop\DIPLOM 03.04.2015\Диплом\календари\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\bin\Debug\System.Windows.Forms.Calendar.dll
+C:\Users\Olga\Desktop\DIPLOM 03.04.2015\Диплом\календари\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\bin\Debug\System.Windows.Forms.Calendar.pdb
+C:\Users\Olga\Desktop\DIPLOM 03.04.2015\Диплом\календари\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\obj\Debug\CalendarDemo.csprojResolveAssemblyReference.cache
+C:\Users\Olga\Desktop\DIPLOM 03.04.2015\Диплом\календари\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\obj\Debug\CalendarDemo.DemoForm.resources
+C:\Users\Olga\Desktop\DIPLOM 03.04.2015\Диплом\календари\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\obj\Debug\CalendarDemo.Properties.Resources.resources
+C:\Users\Olga\Desktop\DIPLOM 03.04.2015\Диплом\календари\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\obj\Debug\CalendarDemo.csproj.GenerateResource.Cache
+C:\Users\Olga\Desktop\DIPLOM 03.04.2015\Диплом\календари\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\obj\Debug\CalendarDemo.exe
+C:\Users\Olga\Desktop\DIPLOM 03.04.2015\Диплом\календари\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\obj\Debug\CalendarDemo.pdb
+C:\Users\Olga\Downloads\DIPLOM 13.04.2015(1)\DIPLOM 03.04.2015\Диплом\Debtors_v_2\2 user\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\obj\Debug\CalendarDemo.exe
+C:\Users\Olga\Downloads\DIPLOM 13.04.2015(1)\DIPLOM 03.04.2015\Диплом\Debtors_v_2\2 user\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\obj\Debug\CalendarDemo.pdb
+C:\Users\Olga\Downloads\DIPLOM 13.04.2015(1)\DIPLOM 03.04.2015\Диплом\Debtors_v_2\2 user\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\bin\Debug\CalendarDemo.exe
+C:\Users\Olga\Downloads\DIPLOM 13.04.2015(1)\DIPLOM 03.04.2015\Диплом\Debtors_v_2\2 user\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\bin\Debug\CalendarDemo.pdb
+C:\Users\Olga\Downloads\DIPLOM 13.04.2015(1)\DIPLOM 03.04.2015\Диплом\Debtors_v_2\2 user\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\bin\Debug\System.Windows.Forms.Calendar.dll
+C:\Users\Olga\Downloads\DIPLOM 13.04.2015(1)\DIPLOM 03.04.2015\Диплом\Debtors_v_2\2 user\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\bin\Debug\System.Windows.Forms.Calendar.pdb
+C:\Users\Olga\Downloads\DIPLOM 13.04.2015(1)\DIPLOM 03.04.2015\Диплом\Debtors_v_2\2 user\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\obj\Debug\CalendarDemo.csprojResolveAssemblyReference.cache
+C:\Users\Olga\Downloads\DIPLOM 13.04.2015(1)\DIPLOM 03.04.2015\Диплом\Debtors_v_2\2 user\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\obj\Debug\CalendarDemo.DemoForm.resources
+C:\Users\Olga\Downloads\DIPLOM 13.04.2015(1)\DIPLOM 03.04.2015\Диплом\Debtors_v_2\2 user\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\obj\Debug\CalendarDemo.Properties.Resources.resources
+C:\Users\Olga\Downloads\DIPLOM 13.04.2015(1)\DIPLOM 03.04.2015\Диплом\Debtors_v_2\2 user\System_Windows_Forms_Calendar_003\System.Windows.Forms.Calendar\CalendarDemo\obj\Debug\CalendarDemo.csproj.GenerateResource.Cache
